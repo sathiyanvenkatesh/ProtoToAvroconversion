@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Built-By: Sathiyan
+Class-Path: lib/protobuf-java-2.6.1.jar lib/avro-1.7.7.jar lib/jackson
+ -core-asl-1.9.13.jar lib/jackson-mapper-asl-1.9.13.jar lib/paranamer-
+ 2.3.jar lib/commons-compress-1.4.1.jar lib/xz-1.0.jar lib/slf4j-api-1
+ .6.4.jar lib/avro-protobuf-1.7.7.jar lib/jtds-1.3.1.jar lib/commons-v
+ fs-1.0.jar lib/commons-logging-1.0.4.jar lib/snappy-java-1.1.1.7.jar
+Build-Jdk: 1.8.0_91
+Created-By: Maven Integration for Eclipse
+Main-Class: com.sample.testprototoavro.Worker
+

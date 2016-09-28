@@ -1,0 +1,1574 @@
+{
+  "type": "record",
+  "name": "BidRequest",
+  "namespace": "com.example.tutorial.RealTimeBiddingProtos$",
+  "fields": [
+    
+    
+    {
+      "name": "google_user_id",
+      "type": {
+        "type": "string",
+        "avro.java.string": "String"
+      },
+      "default": ""
+    },
+    {
+      "name": "constrained_usage_google_user_id",
+      "type": {
+        "type": "string",
+        "avro.java.string": "String"
+      },
+      "default": ""
+    },
+    {
+      "name": "cookie_version",
+      "type": "int",
+      "default": 0
+    },
+    {
+      "name": "cookie_age_seconds",
+      "type": "int",
+      "default": 0
+    },
+    {
+      "name": "hosted_match_data",
+      "type": "bytes",
+      "default": ""
+    },
+    {
+      "name": "constrained_usage_hosted_match_data",
+      "type": "bytes",
+      "default": ""
+    },
+    {
+      "name": "user_agent",
+      "type": {
+        "type": "string",
+        "avro.java.string": "String"
+      },
+      "default": ""
+    },
+    {
+      "name": "geo_criteria_id",
+      "type": "int",
+      "default": 0
+    },
+    {
+      "name": "postal_code",
+      "type": {
+        "type": "string",
+        "avro.java.string": "String"
+      },
+      "default": ""
+    },
+    {
+      "name": "postal_code_prefix",
+      "type": {
+        "type": "string",
+        "avro.java.string": "String"
+      },
+      "default": ""
+    },
+    {
+      "name": "encrypted_hyperlocal_set",
+      "type": "bytes",
+      "default": ""
+    },
+    {
+      "name": "hyperlocal_set",
+      "type": [
+        "null",
+        {
+          "type": "record",
+          "name": "HyperlocalSet",
+          "namespace": "com.example.tutorial.RealTimeBiddingProtos$BidRequest$",
+          "fields": [
+            {
+              "name": "hyperlocal",
+              "type": {
+                "type": "array",
+                "items": {
+                  "type": "record",
+                  "name": "Hyperlocal",
+                  "fields": [
+                    {
+                      "name": "corners",
+                      "type": {
+                        "type": "array",
+                        "items": {
+                          "type": "record",
+                          "name": "Point",
+                          "namespace": "com.example.tutorial.RealTimeBiddingProtos$BidRequest$Hyperlocal$",
+                          "fields": [
+                            {
+                              "name": "latitude",
+                              "type": "float",
+                              "default": 0
+                            },
+                            {
+                              "name": "longitude",
+                              "type": "float",
+                              "default": 0
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "center_point",
+              "type": [
+                "null",
+                "com.example.tutorial.RealTimeBiddingProtos$BidRequest$Hyperlocal$.Point"
+              ],
+              "default": null
+            }
+          ]
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "timezone_offset",
+      "type": "int",
+      "default": 0
+    },
+    {
+      "name": "user_vertical",
+      "type": {
+        "type": "array",
+        "items": "int"
+      }
+    },
+    {
+      "name": "user_demographic",
+      "type": [
+        "null",
+        {
+          "type": "record",
+          "name": "UserDemographic",
+          "namespace": "com.example.tutorial.RealTimeBiddingProtos$BidRequest$",
+          "fields": [
+            {
+              "name": "gender",
+              "type": {
+                "type": "enum",
+                "name": "Gender",
+                "namespace": "com.example.tutorial.RealTimeBiddingProtos$BidRequest$UserDemographic$",
+                "symbols": [
+                  "UNKNOWN",
+                  "MALE",
+                  "FEMALE"
+                ]
+              },
+              "default": "UNKNOWN"
+            },
+            {
+              "name": "age_low",
+              "type": "int",
+              "default": 0
+            },
+            {
+              "name": "age_high",
+              "type": "int",
+              "default": 999
+            }
+          ]
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "user_list",
+      "type": {
+        "type": "array",
+        "items": {
+          "type": "record",
+          "name": "UserList",
+          "namespace": "com.example.tutorial.RealTimeBiddingProtos$BidRequest$",
+          "fields": [
+            {
+              "name": "id",
+              "type": "long",
+              "default": 0
+            },
+            {
+              "name": "age_seconds",
+              "type": "int",
+              "default": 0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "seller_network_id",
+      "type": "int",
+      "default": 0
+    },
+    {
+      "name": "partner_id",
+      "type": "long",
+      "default": 0
+    },
+    {
+      "name": "url",
+      "type": {
+        "type": "string",
+        "avro.java.string": "String"
+      },
+      "default": ""
+    },
+    {
+      "name": "anonymous_id",
+      "type": {
+        "type": "string",
+        "avro.java.string": "String"
+      },
+      "default": ""
+    },
+    {
+      "name": "detected_language",
+      "type": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      }
+    },
+    {
+      "name": "detected_vertical",
+      "type": {
+        "type": "array",
+        "items": {
+          "type": "record",
+          "name": "Vertical",
+          "namespace": "com.example.tutorial.RealTimeBiddingProtos$BidRequest$",
+          "fields": [
+            {
+              "name": "id",
+              "type": "int"
+            },
+            {
+              "name": "weight",
+              "type": "float"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "detected_content_label",
+      "type": {
+        "type": "array",
+        "items": "int"
+      }
+    },
+    {
+      "name": "device",
+      "type": [
+        "null",
+        {
+          "type": "record",
+          "name": "Device",
+          "namespace": "com.example.tutorial.RealTimeBiddingProtos$BidRequest$",
+          "fields": [
+            {
+              "name": "device_type",
+              "type": {
+                "type": "enum",
+                "name": "DeviceType",
+                "namespace": "com.example.tutorial.RealTimeBiddingProtos$BidRequest$Device$",
+                "symbols": [
+                  "UNKNOWN_DEVICE",
+                  "HIGHEND_PHONE",
+                  "TABLET",
+                  "PERSONAL_COMPUTER",
+                  "CONNECTED_TV",
+                  "GAME_CONSOLE"
+                ]
+              },
+              "default": "UNKNOWN_DEVICE"
+            },
+            {
+              "name": "platform",
+              "type": {
+                "type": "string",
+                "avro.java.string": "String"
+              },
+              "default": ""
+            },
+            {
+              "name": "brand",
+              "type": {
+                "type": "string",
+                "avro.java.string": "String"
+              },
+              "default": ""
+            },
+            {
+              "name": "model",
+              "type": {
+                "type": "string",
+                "avro.java.string": "String"
+              },
+              "default": ""
+            },
+            {
+              "name": "os_version",
+              "type": [
+                "null",
+                {
+                  "type": "record",
+                  "name": "OsVersion",
+                  "namespace": "com.example.tutorial.RealTimeBiddingProtos$BidRequest$Device$",
+                  "fields": [
+                    {
+                      "name": "major",
+                      "type": "int",
+                      "default": 0
+                    },
+                    {
+                      "name": "minor",
+                      "type": "int",
+                      "default": 0
+                    },
+                    {
+                      "name": "micro",
+                      "type": "int",
+                      "default": 0
+                    }
+                  ]
+                }
+              ],
+              "default": null
+            },
+            {
+              "name": "carrier_id",
+              "type": "long",
+              "default": 0
+            },
+            {
+              "name": "screen_width",
+              "type": "int",
+              "default": 0
+            },
+            {
+              "name": "screen_height",
+              "type": "int",
+              "default": 0
+            },
+            {
+              "name": "screen_pixel_ratio_millis",
+              "type": "int",
+              "default": 0
+            },
+            {
+              "name": "screen_orientation",
+              "type": {
+                "type": "enum",
+                "name": "ScreenOrientation",
+                "namespace": "com.example.tutorial.RealTimeBiddingProtos$BidRequest$Device$",
+                "symbols": [
+                  "UNKNOWN_ORIENTATION",
+                  "PORTRAIT",
+                  "LANDSCAPE"
+                ]
+              },
+              "default": "UNKNOWN_ORIENTATION"
+            },
+            {
+              "name": "hardware_version",
+              "type": {
+                "type": "string",
+                "avro.java.string": "String"
+              },
+              "default": ""
+            }
+          ]
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "key_value",
+      "type": {
+        "type": "array",
+        "items": {
+          "type": "record",
+          "name": "KeyValue",
+          "namespace": "com.example.tutorial.RealTimeBiddingProtos$BidRequest$",
+          "fields": [
+            {
+              "name": "key",
+              "type": {
+                "type": "string",
+                "avro.java.string": "String"
+              },
+              "default": ""
+            },
+            {
+              "name": "value",
+              "type": {
+                "type": "string",
+                "avro.java.string": "String"
+              },
+              "default": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "mobile",
+      "type": [
+        "null",
+        {
+          "type": "record",
+          "name": "Mobile",
+          "namespace": "com.example.tutorial.RealTimeBiddingProtos$BidRequest$",
+          "fields": [
+            {
+              "name": "is_app",
+              "type": "boolean",
+              "default": false
+            },
+            {
+              "name": "app_id",
+              "type": {
+                "type": "string",
+                "avro.java.string": "String"
+              },
+              "default": ""
+            },
+            {
+              "name": "is_interstitial_request",
+              "type": "boolean",
+              "default": false
+            },
+            {
+              "name": "app_category_ids",
+              "type": {
+                "type": "array",
+                "items": "int"
+              }
+            },
+            {
+              "name": "is_mobile_web_optimized",
+              "type": "boolean",
+              "default": false
+            },
+            
+           
+            {
+              "name": "encrypted_hashed_idfa",
+              "type": "bytes",
+              "default": ""
+            },
+            {
+              "name": "hashed_idfa",
+              "type": "bytes",
+              "default": ""
+            },
+            {
+              "name": "constrained_usage_encrypted_advertising_id",
+              "type": "bytes",
+              "default": ""
+            },
+            {
+              "name": "constrained_usage_advertising_id",
+              "type": "bytes",
+              "default": ""
+            },
+            {
+              "name": "constrained_usage_encrypted_hashed_idfa",
+              "type": "bytes",
+              "default": ""
+            },
+            {
+              "name": "constrained_usage_hashed_idfa",
+              "type": "bytes",
+              "default": ""
+            },
+            {
+              "name": "app_name",
+              "type": {
+                "type": "string",
+                "avro.java.string": "String"
+              },
+              "default": ""
+            },
+            {
+              "name": "app_rating",
+              "type": "float",
+              "default": 0
+            },
+            {
+              "name": "DEPRECATED_app_name",
+              "type": {
+                "type": "string",
+                "avro.java.string": "String"
+              },
+              "default": ""
+            },
+            {
+              "name": "DEPRECATED_company_name",
+              "type": {
+                "type": "string",
+                "avro.java.string": "String"
+              },
+              "default": ""
+            },
+            {
+              "name": "DEPRECATED_platform",
+              "type": {
+                "type": "string",
+                "avro.java.string": "String"
+              },
+              "default": ""
+            },
+            {
+              "name": "DEPRECATED_carrier_name",
+              "type": {
+                "type": "string",
+                "avro.java.string": "String"
+              },
+              "default": ""
+            },
+            {
+              "name": "DEPRECATED_carrier_country",
+              "type": {
+                "type": "string",
+                "avro.java.string": "String"
+              },
+              "default": ""
+            },
+            {
+              "name": "DEPRECATED_mobile_device_type",
+              "type": {
+                "type": "enum",
+                "name": "MobileDeviceType",
+                "namespace": "com.example.tutorial.RealTimeBiddingProtos$BidRequest$Mobile$",
+                "symbols": [
+                  "UNKNOWN",
+                  "HIGHEND_PHONE",
+                  "TABLET"
+                ]
+              },
+              "default": "UNKNOWN"
+            },
+            {
+              "name": "DEPRECATED_screen_orientation",
+              "type": "int",
+              "default": 0
+            },
+            {
+              "name": "DEPRECATED_brand",
+              "type": {
+                "type": "string",
+                "avro.java.string": "String"
+              },
+              "default": ""
+            },
+            {
+              "name": "DEPRECATED_model",
+              "type": {
+                "type": "string",
+                "avro.java.string": "String"
+              },
+              "default": ""
+            },
+            {
+              "name": "DEPRECATED_os_version",
+              "type": [
+                "null",
+                {
+                  "type": "record",
+                  "name": "DeviceOsVersion",
+                  "namespace": "com.example.tutorial.RealTimeBiddingProtos$BidRequest$Mobile$",
+                  "fields": [
+                    {
+                      "name": "os_version_major",
+                      "type": "int",
+                      "default": 0
+                    },
+                    {
+                      "name": "os_version_minor",
+                      "type": "int",
+                      "default": 0
+                    },
+                    {
+                      "name": "os_version_micro",
+                      "type": "int",
+                      "default": 0
+                    }
+                  ]
+                }
+              ],
+              "default": null
+            },
+            {
+              "name": "DEPRECATED_screen_width",
+              "type": "int",
+              "default": 0
+            },
+            {
+              "name": "DEPRECATED_screen_height",
+              "type": "int",
+              "default": 0
+            },
+            {
+              "name": "DEPRECATED_carrier_id",
+              "type": "long",
+              "default": 0
+            },
+            {
+              "name": "DEPRECATED_device_pixel_ratio_millis",
+              "type": "int",
+              "default": 1000
+            }
+          ]
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "video",
+      "type": [
+        "null",
+        {
+          "type": "record",
+          "name": "Video",
+          "namespace": "com.example.tutorial.RealTimeBiddingProtos$BidRequest$",
+          "fields": [
+            {
+              "name": "placement",
+              "type": {
+                "type": "enum",
+                "name": "Placement",
+                "namespace": "com.example.tutorial.RealTimeBiddingProtos$BidRequest$Video$",
+                "symbols": [
+                  "UNKNOWN_PLACEMENT",
+                  "INSTREAM",
+                  "INTERSTITIAL"
+                ]
+              },
+              "default": "UNKNOWN_PLACEMENT"
+            },
+            {
+              "name": "description_url",
+              "type": {
+                "type": "string",
+                "avro.java.string": "String"
+              },
+              "default": ""
+            },
+            {
+              "name": "is_embedded_offsite",
+              "type": "boolean",
+              "default": false
+            },
+            {
+              "name": "playback_method",
+              "type": {
+                "type": "enum",
+                "name": "VideoPlaybackMethod",
+                "namespace": "com.example.tutorial.RealTimeBiddingProtos$BidRequest$Video$",
+                "symbols": [
+                  "METHOD_UNKNOWN",
+                  "AUTO_PLAY_SOUND_ON",
+                  "AUTO_PLAY_SOUND_OFF",
+                  "CLICK_TO_PLAY"
+                ]
+              },
+              "default": "METHOD_UNKNOWN"
+            },
+            {
+              "name": "is_clickable",
+              "type": "boolean",
+              "default": false
+            },
+            {
+              "name": "videoad_start_delay",
+              "type": "int",
+              "default": 0
+            },
+            {
+              "name": "max_ad_duration",
+              "type": "int",
+              "default": 0
+            },
+            {
+              "name": "min_ad_duration",
+              "type": "int",
+              "default": 0
+            },
+            {
+              "name": "max_ads_in_pod",
+              "type": "int",
+              "default": 0
+            },
+            {
+              "name": "video_ad_skippable",
+              "type": {
+                "type": "enum",
+                "name": "SkippableBidRequestType",
+                "namespace": "com.example.tutorial.RealTimeBiddingProtos$BidRequest$Video$",
+                "symbols": [
+                  "ALLOW_SKIPPABLE",
+                  "REQUIRE_SKIPPABLE",
+                  "BLOCK_SKIPPABLE"
+                ]
+              },
+              "default": "ALLOW_SKIPPABLE"
+            },
+            {
+              "name": "skippable_max_ad_duration",
+              "type": "int",
+              "default": 0
+            },
+            {
+              "name": "allowed_video_formats",
+              "type": {
+                "type": "array",
+                "items": {
+                  "type": "enum",
+                  "name": "VideoFormat",
+                  "namespace": "com.example.tutorial.RealTimeBiddingProtos$BidRequest$Video$",
+                  "symbols": [
+                    "VIDEO_FLV",
+                    "VIDEO_MP4",
+                    "YT_HOSTED",
+                    "VPAID_FLASH",
+                    "VPAID_JS"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "companion_slot",
+              "type": {
+                "type": "array",
+                "items": {
+                  "type": "record",
+                  "name": "CompanionSlot",
+                  "namespace": "com.example.tutorial.RealTimeBiddingProtos$BidRequest$Video$",
+                  "fields": [
+                    {
+                      "name": "height",
+                      "type": {
+                        "type": "array",
+                        "items": "int"
+                      }
+                    },
+                    {
+                      "name": "width",
+                      "type": {
+                        "type": "array",
+                        "items": "int"
+                      }
+                    },
+                    {
+                      "name": "creative_format",
+                      "type": {
+                        "type": "array",
+                        "items": {
+                          "type": "enum",
+                          "name": "CreativeFormat",
+                          "namespace": "com.example.tutorial.RealTimeBiddingProtos$BidRequest$Video$CompanionSlot$",
+                          "symbols": [
+                            "IMAGE_CREATIVE",
+                            "FLASH_CREATIVE",
+                            "HTML_CREATIVE"
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "end_cap_support",
+              "type": {
+                "type": "enum",
+                "name": "EndCapSupport",
+                "namespace": "com.example.tutorial.RealTimeBiddingProtos$BidRequest$Video$",
+                "symbols": [
+                  "END_CAP_NOT_ENABLED",
+                  "END_CAP_OPTIONAL",
+                  "END_CAP_FORBIDDEN",
+                  "END_CAP_REQUIRED"
+                ]
+              },
+              "default": "END_CAP_NOT_ENABLED"
+            },
+            {
+              "name": "content_attributes",
+              "type": [
+                "null",
+                {
+                  "type": "record",
+                  "name": "ContentAttributes",
+                  "namespace": "com.example.tutorial.RealTimeBiddingProtos$BidRequest$Video$",
+                  "fields": [
+                    {
+                      "name": "title",
+                      "type": {
+                        "type": "string",
+                        "avro.java.string": "String"
+                      },
+                      "default": ""
+                    },
+                    {
+                      "name": "duration_seconds",
+                      "type": "int",
+                      "default": 0
+                    },
+                    {
+                      "name": "keywords",
+                      "type": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "avro.java.string": "String"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ],
+              "default": null
+            },
+            {
+              "name": "DEPRECATED_inventory_type",
+              "type": {
+                "type": "enum",
+                "name": "InventoryType",
+                "namespace": "com.example.tutorial.RealTimeBiddingProtos$BidRequest$Video$",
+                "symbols": [
+                  "WEB_VIDEO",
+                  "GAMES",
+                  "MOBILE_INTERSTITIAL",
+                  "MOBILE_APP_VIDEO"
+                ]
+              },
+              "default": "WEB_VIDEO"
+            }
+          ]
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "publisher_settings_list_id",
+      "type": "long",
+      "default": 0
+    },
+    {
+      "name": "publisher_type",
+      "type": {
+        "type": "enum",
+        "name": "PublisherType",
+        "namespace": "com.example.tutorial.RealTimeBiddingProtos$BidRequest$",
+        "symbols": [
+          "UNKNOWN_PUBLISHER_TYPE",
+          "ADX_PUBLISHER_OWNED_AND_OPERATED",
+          "ADX_PUBLISHER_REPRESENTED",
+          "GOOGLE_REPRESENTED"
+        ]
+      },
+      "default": "UNKNOWN_PUBLISHER_TYPE"
+    },
+    {
+      "name": "adslot",
+      "type": {
+        "type": "array",
+        "items": {
+          "type": "record",
+          "name": "AdSlot",
+          "namespace": "com.example.tutorial.RealTimeBiddingProtos$BidRequest$",
+          "fields": [
+            {
+              "name": "id",
+              "type": "int"
+            },
+            {
+              "name": "ad_block_key",
+              "type": "long",
+              "default": 0
+            },
+            {
+              "name": "targetable_channel",
+              "type": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "avro.java.string": "String"
+                }
+              }
+            },
+            {
+              "name": "width",
+              "type": {
+                "type": "array",
+                "items": "int"
+              }
+            },
+            {
+              "name": "height",
+              "type": {
+                "type": "array",
+                "items": "int"
+              }
+            },
+            {
+              "name": "excluded_attribute",
+              "type": {
+                "type": "array",
+                "items": "int"
+              }
+            },
+            {
+              "name": "allowed_vendor_type",
+              "type": {
+                "type": "array",
+                "items": "int"
+              }
+            },
+            {
+              "name": "excluded_sensitive_category",
+              "type": {
+                "type": "array",
+                "items": "int"
+              }
+            },
+            {
+              "name": "allowed_restricted_category",
+              "type": {
+                "type": "array",
+                "items": "int"
+              }
+            },
+            {
+              "name": "allowed_restricted_category_for_deals",
+              "type": {
+                "type": "array",
+                "items": "int"
+              }
+            },
+            {
+              "name": "allowed_languages",
+              "type": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "avro.java.string": "String"
+                }
+              }
+            },
+            {
+              "name": "excluded_product_category",
+              "type": {
+                "type": "array",
+                "items": "int"
+              }
+            },
+            {
+              "name": "matching_ad_data",
+              "type": {
+                "type": "array",
+                "items": {
+                  "type": "record",
+                  "name": "MatchingAdData",
+                  "namespace": "com.example.tutorial.RealTimeBiddingProtos$BidRequest$AdSlot$",
+                  "fields": [
+                    {
+                      "name": "billing_id",
+                      "type": {
+                        "type": "array",
+                        "items": "long"
+                      }
+                    },
+                    {
+                      "name": "minimum_cpm_micros",
+                      "type": "long",
+                      "default": 0
+                    },
+                    {
+                      "name": "pricing_rule",
+                      "type": {
+                        "type": "array",
+                        "items": {
+                          "type": "record",
+                          "name": "BuyerPricingRule",
+                          "namespace": "com.example.tutorial.RealTimeBiddingProtos$BidRequest$AdSlot$MatchingAdData$",
+                          "fields": [
+                            {
+                              "name": "included_advertisers",
+                              "type": {
+                                "type": "array",
+                                "items": "long"
+                              }
+                            },
+                            {
+                              "name": "excluded_advertisers",
+                              "type": {
+                                "type": "array",
+                                "items": "long"
+                              }
+                            },
+                            {
+                              "name": "included_agencies",
+                              "type": {
+                                "type": "array",
+                                "items": "long"
+                              }
+                            },
+                            {
+                              "name": "excluded_agencies",
+                              "type": {
+                                "type": "array",
+                                "items": "long"
+                              }
+                            },
+                            {
+                              "name": "blocked",
+                              "type": "boolean",
+                              "default": false
+                            },
+                            {
+                              "name": "minimum_cpm_micros",
+                              "type": "long",
+                              "default": 0
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "name": "direct_deal",
+                      "type": {
+                        "type": "array",
+                        "items": {
+                          "type": "record",
+                          "name": "DirectDeal",
+                          "namespace": "com.example.tutorial.RealTimeBiddingProtos$BidRequest$AdSlot$MatchingAdData$",
+                          "fields": [
+                            {
+                              "name": "direct_deal_id",
+                              "type": "long",
+                              "default": 0
+                            },
+                            {
+                              "name": "fixed_cpm_micros",
+                              "type": "long",
+                              "default": 0
+                            },
+                            {
+                              "name": "deal_type",
+                              "type": {
+                                "type": "enum",
+                                "name": "DealType",
+                                "namespace": "com.example.tutorial.RealTimeBiddingProtos$BidRequest$AdSlot$MatchingAdData$DirectDeal$",
+                                "symbols": [
+                                  "UNKNOWN_DEAL_TYPE",
+                                  "PREFERRED_DEAL",
+                                  "PRIVATE_AUCTION"
+                                ]
+                              },
+                              "default": "UNKNOWN_DEAL_TYPE"
+                            },
+                            {
+                              "name": "publisher_blocks_overridden",
+                              "type": "boolean",
+                              "default": false
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "name": "DEPRECATED_campaign_id",
+                      "type": "long",
+                      "default": 0
+                    },
+                    {
+                      "name": "DEPRECATED_per_buyer_minimum_cpm",
+                      "type": "boolean",
+                      "default": false
+                    },
+                    {
+                      "name": "DEPRECATED_fixed_cpm_micros",
+                      "type": "long",
+                      "default": 0
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "publisher_settings_list_id",
+              "type": {
+                "type": "array",
+                "items": "long"
+              }
+            },
+            {
+              "name": "exchange_bidding",
+              "type": [
+                "null",
+                {
+                  "type": "record",
+                  "name": "ExchangeBidding",
+                  "namespace": "com.example.tutorial.RealTimeBiddingProtos$BidRequest$AdSlot$",
+                  "fields": [
+                    {
+                      "name": "publisher_parameter",
+                      "type": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "avro.java.string": "String"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ],
+              "default": null
+            },
+            {
+              "name": "slot_visibility",
+              "type": {
+                "type": "enum",
+                "name": "SlotVisibility",
+                "namespace": "com.example.tutorial.RealTimeBiddingProtos$BidRequest$AdSlot$",
+                "symbols": [
+                  "NO_DETECTION",
+                  "ABOVE_THE_FOLD",
+                  "BELOW_THE_FOLD"
+                ]
+              },
+              "default": "NO_DETECTION"
+            },
+            {
+              "name": "viewability",
+              "type": "int",
+              "default": -1
+            },
+            {
+              "name": "click_through_rate",
+              "type": "float",
+              "default": -1.0
+            },
+            {
+              "name": "iframing_state",
+              "type": {
+                "type": "enum",
+                "name": "IFramingState",
+                "namespace": "com.example.tutorial.RealTimeBiddingProtos$BidRequest$AdSlot$",
+                "symbols": [
+                  "UNKNOWN_IFRAME_STATE",
+                  "NO_IFRAME",
+                  "SAME_DOMAIN_IFRAME",
+                  "CROSS_DOMAIN_IFRAME"
+                ]
+              },
+              "default": "UNKNOWN_IFRAME_STATE"
+            },
+            {
+              "name": "iframing_depth",
+              "type": {
+                "type": "enum",
+                "name": "IFramingDepth",
+                "namespace": "com.example.tutorial.RealTimeBiddingProtos$BidRequest$AdSlot$",
+                "symbols": [
+                  "UNKNOWN_IFRAME_DEPTH",
+                  "NOT_IN_IFRAME",
+                  "ONE_IFRAME",
+                  "MULTIPLE_IFRAME"
+                ]
+              },
+              "default": "UNKNOWN_IFRAME_DEPTH"
+            },
+            {
+              "name": "native_ad_template",
+              "type": {
+                "type": "array",
+                "items": {
+                  "type": "record",
+                  "name": "NativeAdTemplate",
+                  "namespace": "com.example.tutorial.RealTimeBiddingProtos$BidRequest$AdSlot$",
+                  "fields": [
+                    {
+                      "name": "required_fields",
+                      "type": "long",
+                      "default": 0
+                    },
+                    {
+                      "name": "recommended_fields",
+                      "type": "long",
+                      "default": 0
+                    },
+                    {
+                      "name": "headline_max_safe_length",
+                      "type": "int",
+                      "default": 0
+                    },
+                    {
+                      "name": "body_max_safe_length",
+                      "type": "int",
+                      "default": 0
+                    },
+                    {
+                      "name": "call_to_action_max_safe_length",
+                      "type": "int",
+                      "default": 0
+                    },
+                    {
+                      "name": "advertiser_max_safe_length",
+                      "type": "int",
+                      "default": 0
+                    },
+                    {
+                      "name": "store_max_safe_length",
+                      "type": "int",
+                      "default": 0
+                    },
+                    {
+                      "name": "price_max_safe_length",
+                      "type": "int",
+                      "default": 0
+                    },
+                    {
+                      "name": "image_width",
+                      "type": "int",
+                      "default": 0
+                    },
+                    {
+                      "name": "image_height",
+                      "type": "int",
+                      "default": 0
+                    },
+                    {
+                      "name": "logo_width",
+                      "type": "int",
+                      "default": 0
+                    },
+                    {
+                      "name": "logo_height",
+                      "type": "int",
+                      "default": 0
+                    },
+                    {
+                      "name": "app_icon_width",
+                      "type": "int",
+                      "default": 0
+                    },
+                    {
+                      "name": "app_icon_height",
+                      "type": "int",
+                      "default": 0
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "mediation_status",
+              "type": {
+                "type": "enum",
+                "name": "MediationStatus",
+                "namespace": "com.example.tutorial.RealTimeBiddingProtos$BidRequest$AdSlot$",
+                "symbols": [
+                  "UNKNOWN",
+                  "DIRECT_REQUEST",
+                  "MEDIATED"
+                ]
+              },
+              "default": "UNKNOWN"
+            },
+            {
+              "name": "auto_refresh",
+              "type": [
+                "null",
+                {
+                  "type": "record",
+                  "name": "AutoRefresh",
+                  "namespace": "com.example.tutorial.RealTimeBiddingProtos$BidRequest$AdSlot$",
+                  "fields": [
+                    {
+                      "name": "refresh_settings",
+                      "type": {
+                        "type": "array",
+                        "items": {
+                          "type": "record",
+                          "name": "AutoRefreshSettings",
+                          "namespace": "com.example.tutorial.RealTimeBiddingProtos$BidRequest$AdSlot$AutoRefresh$",
+                          "fields": [
+                            {
+                              "name": "refresh_type",
+                              "type": {
+                                "type": "enum",
+                                "name": "AutoRefreshType",
+                                "namespace": "com.example.tutorial.RealTimeBiddingProtos$BidRequest$AdSlot$AutoRefresh$AutoRefreshSettings$",
+                                "symbols": [
+                                  "UNKNOWN_AUTO_REFRESH_TYPE",
+                                  "USER_ACTION",
+                                  "EVENT",
+                                  "TIME"
+                                ]
+                              },
+                              "default": "UNKNOWN_AUTO_REFRESH_TYPE"
+                            },
+                            {
+                              "name": "min_refresh_interval_seconds",
+                              "type": "int",
+                              "default": 0
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "name": "refresh_count",
+                      "type": "int",
+                      "default": 0
+                    }
+                  ]
+                }
+              ],
+              "default": null
+            },
+            {
+              "name": "stickiness",
+              "type": {
+                "type": "enum",
+                "name": "Stickiness",
+                "namespace": "com.example.tutorial.RealTimeBiddingProtos$BidRequest$AdSlot$",
+                "symbols": [
+                  "UNKNOWN_STICKINESS",
+                  "IS_STICKY"
+                ]
+              },
+              "default": "UNKNOWN_STICKINESS"
+            },
+            {
+              "name": "renderer",
+              "type": {
+                "type": "enum",
+                "name": "Renderer",
+                "namespace": "com.example.tutorial.RealTimeBiddingProtos$BidRequest$AdSlot$",
+                "symbols": [
+                  "UNKNOWN_RENDERER",
+                  "GOOGLE",
+                  "PUBLISHER"
+                ]
+              },
+              "default": "UNKNOWN_RENDERER"
+            },
+            {
+              "name": "DEPRECATED_allowed_attribute",
+              "type": {
+                "type": "array",
+                "items": "int"
+              }
+            },
+            {
+              "name": "DEPRECATED_publisher_settings_list_id",
+              "type": {
+                "type": "array",
+                "items": "bytes"
+              }
+            },
+            {
+              "name": "DEPRECATED_excluded_click_through_url",
+              "type": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "avro.java.string": "String"
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "bid_response_feedback",
+      "type": {
+        "type": "array",
+        "items": {
+          "type": "record",
+          "name": "BidResponseFeedback",
+          "namespace": "com.example.tutorial.RealTimeBiddingProtos$BidRequest$",
+          "fields": [
+            {
+              "name": "request_id",
+              "type": "bytes",
+              "default": ""
+            },
+            {
+              "name": "creative_index",
+              "type": "int",
+              "default": 0
+            },
+            {
+              "name": "creative_status_code",
+              "type": "int",
+              "default": 0
+            },
+            {
+              "name": "cpm_micros",
+              "type": "long",
+              "default": 0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "is_test",
+      "type": "boolean",
+      "default": false
+    },
+    {
+      "name": "is_ping",
+      "type": "boolean",
+      "default": false
+    },
+    {
+      "name": "is_predicted_to_be_ignored",
+      "type": "boolean",
+      "default": false
+    },
+    {
+      "name": "DEPRECATED_protocol_version",
+      "type": "int",
+      "default": 0
+    },
+    {
+      "name": "DEPRECATED_click_tracking_url",
+      "type": {
+        "type": "string",
+        "avro.java.string": "String"
+      },
+      "default": ""
+    },
+    {
+      "name": "DEPRECATED_cookie",
+      "type": "long",
+      "default": 0
+    },
+    {
+      "name": "DEPRECATED_country",
+      "type": {
+        "type": "string",
+        "avro.java.string": "String"
+      },
+      "default": ""
+    },
+    {
+      "name": "DEPRECATED_region",
+      "type": {
+        "type": "string",
+        "avro.java.string": "String"
+      },
+      "default": ""
+    },
+    {
+      "name": "DEPRECATED_city",
+      "type": {
+        "type": "string",
+        "avro.java.string": "String"
+      },
+      "default": ""
+    },
+    {
+      "name": "DEPRECATED_metro",
+      "type": "int",
+      "default": 0
+    },
+    {
+      "name": "DEPRECATED_hashed_cookie",
+      "type": "bytes",
+      "default": ""
+    },
+    {
+      "name": "DEPRECATED_excluded_click_through_url",
+      "type": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      }
+    },
+    {
+      "name": "DEPRECATED_seller_network",
+      "type": {
+        "type": "string",
+        "avro.java.string": "String"
+      },
+      "default": ""
+    },
+    {
+      "name": "DEPRECATED_publisher_settings_list_id",
+      "type": "bytes",
+      "default": ""
+    },
+    {
+      "name": "DEPRECATED_matching_network",
+      "type": {
+        "type": "array",
+        "items": {
+          "type": "record",
+          "name": "MatchingNetwork",
+          "namespace": "com.example.tutorial.RealTimeBiddingProtos$BidRequest$",
+          "fields": [
+            {
+              "name": "DEPRECATED_network_id",
+              "type": {
+                "type": "string",
+                "avro.java.string": "String"
+              },
+              "default": ""
+            },
+            {
+              "name": "DEPRECATED_google_user_id",
+              "type": {
+                "type": "string",
+                "avro.java.string": "String"
+              },
+              "default": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "DEPRECATED_experimental_deadline",
+      "type": "boolean",
+      "default": false
+    },
+    {
+      "name": "DEPRECATED_site_list_id",
+      "type": {
+        "type": "array",
+        "items": "int"
+      }
+    },
+    {
+      "name": "DEPRECATED_vertical_dictionary_version",
+      "type": "int",
+      "default": 0
+    }
+  ]
+}
