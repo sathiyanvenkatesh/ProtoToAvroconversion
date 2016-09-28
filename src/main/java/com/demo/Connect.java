@@ -4,11 +4,11 @@ import java.*;
 public class Connect{
      private java.sql.Connection  con = null;
      private final String url = "jdbc:jtds:sqlserver://";
-     private final String serverName= "192.168.1.15";
+     private final String serverName= "servername";
      private final String portNumber = "1433";
-     private final String databaseName= "rtb_sync";
-     private final String userName = "sathiyan";
-     private final String password = "sathiyan2728";
+     private final String databaseName= "dbname";
+     private final String userName = "username";
+     private final String password = "password";
      // Informs the driver to use server a side-cursor, 
      // which permits more than one active statement 
      // on a connection.
